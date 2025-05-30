@@ -1,26 +1,16 @@
-"""
-URL configuration for tuotetoimitus project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.urls import path
-from .views import landingview, productlistview, supplierlistview, addsupplier, addproduct, \
+from .views import productlistview, supplierlistview, addsupplier, addproduct, \
     deleteproduct, confirmdeleteproduct, deletesupplier, confirmdeletesupplier, edit_product_get, edit_product_post, \
-    edit_supplier_get, edit_supplier_post, searchsuppliers, products_filtered
+    edit_supplier_get, edit_supplier_post, searchsuppliers, products_filtered, loginview, login_action, logout_action
 
 urlpatterns = [
-    path('', landingview),
+    # LANDING PAGE AFTER LOGIN
+    #path('landing/', landingview),
+
+    # Login and authentication
+    path('', loginview),
+    path('login/', login_action),
+    path('logout/', logout_action),
 
     # Products
     path('products/', productlistview),
